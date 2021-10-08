@@ -1,0 +1,204 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>eye-hospital.bsdesign-14-09-2021</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Application-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Contact-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Highlight-Blue.css' %}">
+    <link rel="stylesheet" href="{% static ' assets/css/Highlight-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/pdf.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md" style="background: var(--bs-secondary);">
+        <div class="container"><a class="navbar-brand" href="#" style="color: rgba(255,255,255,0.9);"><strong>LOVE ALL - SERVE ALL</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="background: #d15d4d;color: var(--bs-gray-100);">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- Start: Application Form -->
+    <section style="background: #ecf1f8;">
+        <h1 class="text-center text-capitalize" style="padding-top: 20px;">MEDICAL RECORD</h1>
+        <hr>
+        <div class="container" style="margin-bottom: 0;">
+           <form method="POST" action="patient_info">
+                {% csrf_token%}
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Name</strong>&nbsp;<span class="text-danger">*</span></p><input class="form-control" type="text"  name="name" placeholder="spelling as per Aadhar card" required="required">
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Date of Appointment</strong>&nbsp;<span class="text-danger">*</span></p><input class="form-control" type="date"  name="date" placeholder="YYYY-MM-DD" required="required">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Name of Father/Mother/Gaurdian</strong><span class="text-danger">*</span><br></p><input class="form-control" type="text" required="required" name="fname" placeholder=" Father / Mother / Gaurdian">
+                        </div>
+                      <div class="col-sm-12 col-md-6">
+                            <p><strong>Age</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="required" name="age" placeholder="age">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Gender</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="required" name="gender" placeholder="gender">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Occupation</strong><span class="text-danger">*</span></p><input class="form-control" type="text" required="required" name="occupation" placeholder="Occupation">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Telephone Number</strong>*</p><input class="form-control" type="text" required="required" name="mobile" placeholder="mobile">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Address</strong><span class="text-danger">*</span></p><textarea class="form-control" name="address"></textarea>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Email</strong></p><input class="form-control" type="email" name="email">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Samithi</strong></p><input class="form-control" type="text" name="samithi">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Balvikas Guru (if applicable)</strong></p><input class="form-control" type="text" name="bvguru">
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>Sai Connect Number</strong></p><input class="form-control" type="text" name="sai_connect_number">
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>City / Town</strong><span class="text-danger">*</span></p><input class="form-control" type="text" name="city">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p><strong>State</strong><span class="text-danger">*</span></p><input class="form-control" type="text" name="state">
+                        </div>
+                    </div>
+                </div>
+                <p>( data with* is&nbsp;mandatory)<br></p>
+                <hr>
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Chief Complaints<br></th>
+                                            <th>Right Eye</th>
+                                            <th>Left Eye</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Gradual decrease in vision<br></td>
+                                            <td><input type="checkbox" name="gradual_decrease_in_vision" value="Right Eye"></td>
+                                            <td><input type="checkbox" name="gradual_decrease_in_vision1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sudden decrease in vision<br></td>
+                                            <td><input type="checkbox" name="sudden_decrease_in_vision" value="Right Eye"></td>
+                                            <td><input type="checkbox" name="sudden_decrease_in_vision1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Blurred distant vision<br></td>
+                                            <td><input type="checkbox" name="blurred_distant_vision" value="Right Eye"></td>
+                                            <td><input type="checkbox" name="blurred_distant_vision1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Blurred near vision<br></td>
+                                            <td><input type="checkbox" name="blurred_near_vision" value="Right Eye" ></td>
+                                            <td><input type="checkbox"name="blurred_near_vision1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pain<br></td>
+                                            <td><input type="checkbox" name="pain" value="Right Eye" ></td>
+                                            <td><input type="checkbox"name="pain1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Redness<br></td>
+                                            <td><input type="checkbox" name="redness" value="Right Eye" ></td>
+                                            <td><input type="checkbox"name="redness1" value="Left Eye"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><br><input class="form-control" type="text" name="others" placeholder="Others:"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"><label class="form-label"><strong>Past History</strong></label>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="past_history" value="Injury" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Injury</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="past_history1" value="Any surgery done" id="formCheck-2"><label class="form-check-label" for="formCheck-1">Any surgery done<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="past_history2" value="Any eye medicines" id="formCheck-3"><label class="form-check-label" for="formCheck-1">Any eye medicines&nbsp;<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="past_history3" value="Covid" id="formCheck-3"><label class="form-check-label" for="formCheck-1">Covid&nbsp;<br></label></div>
+                            <hr>
+                        </div>
+                        <div class="col-sm-12 col-md-6"><label class="form-label"><strong>Family History</strong><br></label>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="family_history" value="Glaucoma" id="formCheck-7"><label class="form-check-label" for="formCheck-1">Glaucoma<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="family_history1" value="Retinal Detachment" id="formCheck-8"><label class="form-check-label" for="formCheck-1">Retinal Detachment<br></label></div><label class="form-label">Others</label><input class="form-control" type="text" name="Others2">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"><label class="form-label"><strong>Systemic disease</strong><br></label>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="systemic_disease" value="Diabetes" id="formCheck-9"><label class="form-check-label" for="formCheck-1">Diabetes<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="systemic_disease1" value="Hypertension" id="formCheck-10"><label class="form-check-label" for="formCheck-1">Hypertension (BP)<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="systemic_disease2" value="Heart problem" id="formCheck-5"><label class="form-check-label" for="formCheck-1">Heart problem<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="systemic_disease3" value="Brain disease" id="formCheck-4"><label class="form-check-label" for="formCheck-1">Brain disease<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="systemic_disease4" value="Asthama" id="formCheck-6"><label class="form-check-label" for="formCheck-1">Asthama<br></label></div><label class="form-label">Others</label><input class="form-control" type="text" name="others3">
+                            <hr>
+                        </div>
+                        <div class="col-sm-12 col-md-6"><label class="form-label"><strong>Medication Using</strong><br></label>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="medication" value="Diabetes" id="formCheck-12"><label class="form-check-label" for="formCheck-1">for Diabetes<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="medication1" value="BP" id="formCheck-13"><label class="form-check-label" for="formCheck-1">For BP<br></label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" name="medication2" value="Blood Thinners" id="formCheck-14"><label class="form-check-label" for="formCheck-1">Blood Thinners<br></label></div><label class="form-label">Others</label><input class="form-control" type="text" name="others4">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12"><label class="form-label"><strong>Allergy if any:</strong><br></label><input class="form-control" type="text" name="allergy">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="justify-content-center d-flex form-group mb-3" style="margin-bottom: 0px;">
+                        <div id="submit-btn">
+                            <div class="row" style="margin-bottom: 32px;">
+                                <div class="row"><button class="btn btn-primary btn-light m-0 rounded-pill px-4" type="submit" style="min-width: 500px;">Submit</button></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section><!-- End: Application Form -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'assets/js/Application-Form-1.js' %}"></script>
+    <script src="{% static 'assets/js/Application-Form.js' %}"></script>
+    <script src="{% static 'assets/js/pdf.js' %}"></script>
+</body>
+
+</html>

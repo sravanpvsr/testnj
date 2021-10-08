@@ -1,0 +1,195 @@
+{% if message %}
+
+ <h5 class="text-center text-capitalize" style="padding-top: 20px;"> {{message}} </h5>
+
+ {% endif %}
+
+<h6 align="center">Please download your filled information pdf  and bring printouts along with you on your doctor appointment day to hospital</h6>
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/pdf.css' %}" />
+    <script src="{% static 'assets/js/pdf.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+            <div class="col-md-12 text-right mb-3">
+                <button class="btn btn-primary" id="download"> download pdf</button>
+            </div>
+            <div class="col-md-12">
+                <div class="card" id="invoice">
+                    <div class="card-header bg-transparent header-elements-inline">
+                        <h6 class="card-title text-primary">SRI SATHYA SAI NETRA JYOTHI CLINIC - PATIENT MEDICAL INFORMATION</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="color: rgb(255,255,255);">Column 1</th>
+                                                                        <th style="color: rgb(255,255,255);">Column 2</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                         {% for p in pd %}
+                                                                        <td style="width: 200px;">Hospital ID :&nbsp;</td>
+                                                                        <td>{{p.id}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Name :</strong></td>
+                                                                        <td>{{p.name}}</td>
+                                                                    </tr>
+                                                                      <tr>
+                                                                        <td><strong>Date of Appointment :</strong></td>
+                                                                        <td>{{p.date_of_appointment}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Fahter Name :</td>
+                                                                        <td>{{p.fname}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Age :</td>
+                                                                        <td>{{p.age}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Gender :</td>
+                                                                        <td>{{p.gender}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Occupation :</td>
+                                                                        <td>{{p.occupation}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Mobile :</td>
+                                                                        <td>{{p.mobile}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Address :</td>
+                                                                        <td>{{p.address}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Email :</td>
+                                                                        <td>{{p.email}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Samithi :</td>
+                                                                        <td>{{p.samithi}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Balvikas Guru :</td>
+                                                                        <td>{{p.bvguru}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>City :</td>
+                                                                        <td>{{p.city}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>State :</td>
+                                                                        <td>{{p.state}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Chief Complaints</strong><br></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Gradual Decrease in Vision :<br></td>
+                                                                        <td>{{p.gradual_decrease_in_vision}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Sudden Decrease in Vision :</td>
+                                                                        <td>{{p.sudden_decrease_in_vision}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Blurred distant vision :</td>
+                                                                        <td>{{p.blurred_distant_vision}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Blurred Near vision :<br></td>
+                                                                        <td>{{p.blurred_near_vision}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Pain :</td>
+                                                                        <td>{{p.pain}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Redness :</td>
+                                                                        <td>{{p.redness}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Others :</td>
+                                                                        <td>{{p.others}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Past History :</strong></td>
+                                                                        <td>{{p.past_history}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Family History :</strong></td>
+                                                                        <td>{{p.family_history}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Others :</td>
+                                                                        <td>{{p.Others2}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Systemic disease :</strong></td>
+                                                                        <td>{{p.systemic_disease}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Others :</td>
+                                                                        <td>{{p.others3}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Medication Using :</strong></td>
+                                                                        <td>{{p.medication}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Others :</td>
+                                                                        <td>{{p.others4}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>Allergies :</strong></td>
+                                                                        <td>{{p.allergy}}</td>
+                                                                    </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+
+
+                    </div>
+
+
+                                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
